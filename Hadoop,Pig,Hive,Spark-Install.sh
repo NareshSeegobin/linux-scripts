@@ -65,10 +65,17 @@ apt-get install pdsh --yes
 ## JAVA_HOME="/usr/lib/jvm/java-8-oracle/"
 export JAVA_HOME="/usr/lib/jvm/java-8-oracle/"
 
+cd ./hadoop-3.1.2
+bin/hadoop
+mkdir input
+cp etc/hadoop/*.xml input
+bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.2.jar grep input output 'dfs[a-z.]+'
+cat output/*
 
 
-
-
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
 
 
 
