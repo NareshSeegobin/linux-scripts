@@ -51,6 +51,7 @@ sudo debconf-set-selections
 echo debconf shared/accepted-oracle-license-v1-1 seen true | \
 sudo debconf-set-selections
 
+## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
 apt install oracle-java8-set-default --yes
 
 
