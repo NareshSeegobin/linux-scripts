@@ -34,3 +34,17 @@ tar -xvf ./pig-0.17.0.tar.gz
 tar -xvf ./spark-2.4.0-bin-hadoop2.7.tgz
 
 
+## https://hadoop.apache.org/docs/r3.1.2/hadoop-project-dist/hadoop-common/SingleCluster.html
+
+
+## https://wiki.apache.org/hadoop/HadoopJavaVersions
+## https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
+## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
+
+add-apt-repository ppa:webupd8team/java
+apt update
+apt install oracle-java8-set-default
+
+
+
+
