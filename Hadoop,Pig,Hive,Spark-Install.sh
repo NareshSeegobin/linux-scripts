@@ -41,9 +41,9 @@ tar -xvf ./spark-2.4.0-bin-hadoop2.7.tgz
 ## https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
 ## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
 
-add-apt-repository ppa:webupd8team/java
-apt update
-apt install oracle-java8-set-default
+add-apt-repository ppa:webupd8team/java --yes
+apt update --yes
+apt install oracle-java8-set-default --yes
 
 
 
