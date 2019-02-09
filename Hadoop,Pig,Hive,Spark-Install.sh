@@ -62,8 +62,8 @@ apt-get install pdsh --yes
 
 ## https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
 ## https://linuxize.com/post/install-java-on-ubuntu-18-04/#set-the-java-home-environment-variable
-## JAVA_HOME="/usr/lib/jvm/java-8-oracle/bin/"
-export JAVA_HOME="/usr/lib/jvm/java-8-oracle/bin/"
+## JAVA_HOME="/usr/lib/jvm/java-8-oracle/"
+export JAVA_HOME="/usr/lib/jvm/java-8-oracle/"
 
 
 
