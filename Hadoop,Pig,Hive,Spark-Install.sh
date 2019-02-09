@@ -7,6 +7,26 @@
 ## 20190208 0840 - added https://hadoop.apache.org/
 
 
+## https://wiki.apache.org/hadoop/HadoopJavaVersions
+## https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
+## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
+
+add-apt-repository ppa:webupd8team/java --yes
+apt update --yes
+
+## https://askubuntu.com/questions/190582/installing-java-automatically-with-silent-option
+
+echo debconf shared/accepted-oracle-license-v1-1 select true | \
+sudo debconf-set-selections
+echo debconf shared/accepted-oracle-license-v1-1 seen true | \
+sudo debconf-set-selections
+
+## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
+apt install oracle-java8-set-default --yes
+
+
+
+
 ## https://hadoop.apache.org/releases.html
 ## https://www-us.apache.org/dist/hadoop/common/hadoop-3.1.2/hadoop-3.1.2.tar.gz
 
@@ -34,25 +54,17 @@ tar -xvf ./pig-0.17.0.tar.gz
 tar -xvf ./spark-2.4.0-bin-hadoop2.7.tgz
 
 
+
+
 ## https://hadoop.apache.org/docs/r3.1.2/hadoop-project-dist/hadoop-common/SingleCluster.html
 
+apt-get install pdsh --yes
 
-## https://wiki.apache.org/hadoop/HadoopJavaVersions
 ## https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
-## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
+## https://linuxize.com/post/install-java-on-ubuntu-18-04/#set-the-java-home-environment-variable
+## JAVA_HOME="/usr/lib/jvm/java-8-oracle/bin/"
+export JAVA_HOME="/usr/lib/jvm/java-8-oracle/bin/"
 
-add-apt-repository ppa:webupd8team/java --yes
-apt update --yes
-
-## https://askubuntu.com/questions/190582/installing-java-automatically-with-silent-option
-
-echo debconf shared/accepted-oracle-license-v1-1 select true | \
-sudo debconf-set-selections
-echo debconf shared/accepted-oracle-license-v1-1 seen true | \
-sudo debconf-set-selections
-
-## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
-apt install oracle-java8-set-default --yes
 
 
 
