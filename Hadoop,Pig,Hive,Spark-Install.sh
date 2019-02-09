@@ -43,7 +43,19 @@ tar -xvf ./spark-2.4.0-bin-hadoop2.7.tgz
 
 add-apt-repository ppa:webupd8team/java --yes
 apt update --yes
+
+## https://askubuntu.com/questions/190582/installing-java-automatically-with-silent-option
+
+echo debconf shared/accepted-oracle-license-v1-1 select true | \
+sudo debconf-set-selections
+echo debconf shared/accepted-oracle-license-v1-1 seen true | \
+sudo debconf-set-selections
+
 apt install oracle-java8-set-default --yes
+
+
+
+
 
 
 
