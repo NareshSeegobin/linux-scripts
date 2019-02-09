@@ -58,6 +58,7 @@ tar -xvf ./spark-2.4.0-bin-hadoop2.7.tgz
 
 ## https://hadoop.apache.org/docs/r3.1.2/hadoop-project-dist/hadoop-common/SingleCluster.html
 
+apt install openssh-server --yes
 apt-get install pdsh --yes
 
 ## https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
@@ -73,7 +74,7 @@ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.2.jar grep i
 cat output/*
 
 
-ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+echo y | ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
 
