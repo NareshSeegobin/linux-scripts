@@ -24,12 +24,13 @@
 mkdir ./Hadoop-et-al
 cd ./Hadoop-et-al
 wget -c https://www-us.apache.org/dist/hadoop/common/hadoop-3.1.2/hadoop-3.1.2.tar.gz
-
-
 wget -c https://www-us.apache.org/dist/hive/hive-3.1.1/apache-hive-3.1.1-bin.tar.gz
-
-
 wget -c https://www-us.apache.org/dist/pig/pig-0.17.0/pig-0.17.0.tar.gz
-
 wget -c https://www-us.apache.org/dist/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz
+
+tar -xvf ./hadoop-3.1.2.tar.gz
+tar -xvf ./apache-hive-3.1.1-bin.tar.gz
+tar -xvf ./pig-0.17.0.tar.gz
+tar -xvf ./spark-2.4.0-bin-hadoop2.7.tgz
+
 
