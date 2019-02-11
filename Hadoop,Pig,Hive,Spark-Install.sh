@@ -74,6 +74,28 @@ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.2.jar grep i
 cat output/*
 
 
+## Use the following:
+## etc/hadoop/core-site.xml:
+
+## <configuration>
+##     <property>
+##         <name>fs.defaultFS</name>
+##         <value>hdfs://localhost:9000</value>
+##     </property>
+## </configuration>
+## etc/hadoop/hdfs-site.xml:
+
+## <configuration>
+##     <property>
+##         <name>dfs.replication</name>
+##         <value>1</value>
+##     </property>
+## </configuration>
+
+## https://stackoverflow.com/questions/44979985/replace-xml-tag-using-sed
+sed ':a;N;$!ba; s|<configuration>.*<\/configuration>|<configuration\/>|g' etc/hadoop/core-site.xml
+
+
 echo y | ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
