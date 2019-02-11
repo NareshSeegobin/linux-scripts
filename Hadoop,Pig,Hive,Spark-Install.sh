@@ -64,7 +64,10 @@ tar -xvf ./spark-2.4.0-bin-hadoop2.7.tgz
 ## https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
 ## https://linuxize.com/post/install-java-on-ubuntu-18-04/#set-the-java-home-environment-variable
 ## JAVA_HOME="/usr/lib/jvm/java-8-oracle/"
+
 export JAVA_HOME="/usr/lib/jvm/java-8-oracle/"
+
+### Standalone Operation
 
 cd ./hadoop-3.1.2
 bin/hadoop
@@ -73,18 +76,22 @@ cp etc/hadoop/*.xml input
 bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.2.jar grep input output 'dfs[a-z.]+'
 cat output/*
 
+##   =================== NB: Once the abovce works, the standalone works. ===========================
+
+
+##  ========================================================================================
+### Pseudo-Distributed Operation
 
 ## Use the following:
 ## etc/hadoop/core-site.xml:
-
 ## <configuration>
 ##     <property>
 ##         <name>fs.defaultFS</name>
 ##         <value>hdfs://localhost:9000</value>
 ##     </property>
 ## </configuration>
-## etc/hadoop/hdfs-site.xml:
 
+## etc/hadoop/hdfs-site.xml:
 ## <configuration>
 ##     <property>
 ##         <name>dfs.replication</name>
@@ -106,10 +113,26 @@ echo y | ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
 
+export JAVA_HOME="/usr/lib/jvm/java-8-oracle/"
+cd ./hadoop-3.1.2
+bin/hadoop
+mkdir input
+cp etc/hadoop/*.xml input
+
 ## 1. Format the filesystem:
 bin/hdfs namenode -format
 
 ## 2. Start NameNode daemon and DataNode daemon:
+### DO NOT USE: sudo -E bash -c 'echo $HTTP_PROXY'
+### DO NOT USE: sudo -E bash -c 'export JAVA_HOME="/usr/lib/jvm/java-8-oracle/"'
+
+## https://stackoverflow.com/questions/48129029/hdfs-namenode-user-hdfs-datanode-user-hdfs-secondarynamenode-user-not-defined
+export HDFS_NAMENODE_USER="root"
+export HDFS_DATANODE_USER="root"
+export HDFS_SECONDARYNAMENODE_USER="root"
+export YARN_RESOURCEMANAGER_USER="root"
+export YARN_NODEMANAGER_USER="root"
+
 sbin/start-dfs.sh
 
 ## 3. Browse the web interface for the NameNode; by default it is available at:
