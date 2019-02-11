@@ -67,20 +67,20 @@ tar -xvf ./spark-2.4.0-bin-hadoop2.7.tgz
 
 export JAVA_HOME="/usr/lib/jvm/java-8-oracle/"
 
-### Standalone Operation
+### ============================Standalone Operation    =============================================
 
-cd ./hadoop-3.1.2
-bin/hadoop
-mkdir input
-cp etc/hadoop/*.xml input
-bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.2.jar grep input output 'dfs[a-z.]+'
-cat output/*
+## cd ./hadoop-3.1.2
+## bin/hadoop
+## mkdir input
+## cp etc/hadoop/*.xml input
+## bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.2.jar grep input output 'dfs[a-z.]+'
+## cat output/*
 
-##   =================== NB: Once the abovce works, the standalone works. ===========================
+##   =================== NB: Once the above works, the standalone works. ===========================
 
 
 ##  ========================================================================================
-### Pseudo-Distributed Operation
+### ==================    Pseudo-Distributed Operation ==================
 
 ## Use the following:
 ## etc/hadoop/core-site.xml:
@@ -144,6 +144,10 @@ export YARN_NODEMANAGER_USER="root"
 
 
 sbin/start-dfs.sh
+
+############        [ ERROR AT THIS POINT ]
+############        [ PLEASE TROUBLESHOOT ] 
+
 
 ## 3. Browse the web interface for the NameNode; by default it is available at:
 ## NameNode - http://localhost:9870/
