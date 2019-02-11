@@ -69,6 +69,7 @@ export JAVA_HOME="/usr/lib/jvm/java-8-oracle/"
 cd ./hadoop-3.1.2
 bin/hadoop
 mkdir input
+mkdir output
 cp etc/hadoop/*.xml input
 bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.2.jar grep input output 'dfs[a-z.]+'
 cat output/*
@@ -93,7 +94,13 @@ cat output/*
 ## </configuration>
 
 ## https://stackoverflow.com/questions/44979985/replace-xml-tag-using-sed
-sed ':a;N;$!ba; s|<configuration>.*<\/configuration>|<configuration\/>|g' etc/hadoop/core-site.xml
+## https://stackoverflow.com/questions/23560215/replace-xml-value-with-sed
+## DO NOT USE: ## sed ':a;N;$!ba; s|<configuration>.*<\/configuration>|<configuration\/>|g' etc/hadoop/core-site.xml
+## TO DO LATER: sed -i -e '/<property>/,/<\/property>/ s|<name>[0-9a-z.]\{1,\}</name>|<name>dfs.replication</name>|g' etc/hadoop/core-site.xml
+## TO DO LATER: sed -i -e '/<property>/,/<\/property>/ s|<value>[0-9a-z.]\{1,\}</value>|<value>hdfs://localhost:9000</value>|g' etc/hadoop/core-site.xml
+
+
+
 
 
 echo y | ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
