@@ -133,9 +133,11 @@ export HDFS_SECONDARYNAMENODE_USER="root"
 export YARN_RESOURCEMANAGER_USER="root"
 export YARN_NODEMANAGER_USER="root"
 
+### NB: DO NOT USE PDSH
+### apt remove pdsh --yes
 ## https://stackoverflow.com/questions/48189954/hadoop-start-dfs-sh-connection-refused
 ## https://unix.stackexchange.com/questions/76722/pdsh-command-failed-with-connection-refused/77112#77112
-export PDSH_RCMD_TYPE=ssh
+## DO NOT USE: ##export PDSH_RCMD_TYPE=ssh
 
 sbin/start-dfs.sh
 
