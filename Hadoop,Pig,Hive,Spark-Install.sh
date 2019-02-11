@@ -133,6 +133,10 @@ export HDFS_SECONDARYNAMENODE_USER="root"
 export YARN_RESOURCEMANAGER_USER="root"
 export YARN_NODEMANAGER_USER="root"
 
+## https://stackoverflow.com/questions/48189954/hadoop-start-dfs-sh-connection-refused
+## https://unix.stackexchange.com/questions/76722/pdsh-command-failed-with-connection-refused/77112#77112
+export PDSH_RCMD_TYPE=ssh
+
 sbin/start-dfs.sh
 
 ## 3. Browse the web interface for the NameNode; by default it is available at:
