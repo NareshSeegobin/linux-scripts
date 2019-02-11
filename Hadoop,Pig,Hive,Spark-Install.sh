@@ -5,24 +5,26 @@
 ## Version History:
 ## 20190207 1444 - Initial version
 ## 20190208 0840 - added https://hadoop.apache.org/
+## 20190211 1319 - added Hadoop execution scripts.      
+##                 NB: Run java installation in another shell script as root. Everyhting here is supposed to be executed in userland.
 
 
 ## https://wiki.apache.org/hadoop/HadoopJavaVersions
 ## https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
 ## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
 
-add-apt-repository ppa:webupd8team/java --yes
-apt update --yes
+## root elsewhere: add-apt-repository ppa:webupd8team/java --yes
+## root elsewhere: apt update --yes
 
 ## https://askubuntu.com/questions/190582/installing-java-automatically-with-silent-option
 
-echo debconf shared/accepted-oracle-license-v1-1 select true | \
-sudo debconf-set-selections
-echo debconf shared/accepted-oracle-license-v1-1 seen true | \
-sudo debconf-set-selections
+## root elsewhere: echo debconf shared/accepted-oracle-license-v1-1 select true | \
+## root elsewhere: sudo debconf-set-selections
+## root elsewhere: echo debconf shared/accepted-oracle-license-v1-1 seen true | \
+## root elsewhere: sudo debconf-set-selections
 
 ## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
-apt install oracle-java8-set-default --yes
+## root elsewhere: apt install oracle-java8-set-default --yes
 
 
 
@@ -54,12 +56,10 @@ tar -xvf ./pig-0.17.0.tar.gz
 tar -xvf ./spark-2.4.0-bin-hadoop2.7.tgz
 
 
-
-
 ## https://hadoop.apache.org/docs/r3.1.2/hadoop-project-dist/hadoop-common/SingleCluster.html
 
-apt install openssh-server --yes
-apt-get install pdsh --yes
+## root elsewhere: apt install openssh-server --yes
+## root elsewhere: apt-get install pdsh --yes
 
 ## https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
 ## https://linuxize.com/post/install-java-on-ubuntu-18-04/#set-the-java-home-environment-variable
@@ -77,6 +77,42 @@ cat output/*
 echo y | ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
+
+## 1. Format the filesystem:
+bin/hdfs namenode -format
+
+## 2. Start NameNode daemon and DataNode daemon:
+sbin/start-dfs.sh
+
+## 3. Browse the web interface for the NameNode; by default it is available at:
+## NameNode - http://localhost:9870/
+/usr/bin/firefox http://localhost:9870/ &
+
+## 4. Make the HDFS directories required to execute MapReduce jobs:
+bin/hdfs dfs -mkdir /user
+bin/hdfs dfs -mkdir /user/<username>
+
+## 5. Copy the input files into the distributed filesystem:
+bin/hdfs dfs -mkdir input
+bin/hdfs dfs -put etc/hadoop/*.xml input
+
+
+## 6. Run some of the examples provided:
+bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.2.jar grep input output 'dfs[a-z.]+'
+
+## 7. Examine the output files: Copy the output files from the distributed filesystem to the local filesystem and examine them:
+bin/hdfs dfs -get output output
+cat output/*
+
+## 7. OR View the output files on the distributed filesystem:
+bin/hdfs dfs -cat output/*
+
+## 8. When you’re done, stop the daemons with:
+sbin/stop-dfs.sh
+
+
+
+
 
 
 
