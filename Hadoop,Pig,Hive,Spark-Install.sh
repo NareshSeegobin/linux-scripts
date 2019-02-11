@@ -69,7 +69,6 @@ export JAVA_HOME="/usr/lib/jvm/java-8-oracle/"
 cd ./hadoop-3.1.2
 bin/hadoop
 mkdir input
-mkdir output
 cp etc/hadoop/*.xml input
 bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.2.jar grep input output 'dfs[a-z.]+'
 cat output/*
