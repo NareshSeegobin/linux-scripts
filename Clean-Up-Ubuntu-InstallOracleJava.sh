@@ -15,6 +15,49 @@
 
 sudo su
 
+
+## https://wiki.apache.org/hadoop/HadoopJavaVersions
+## https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
+## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
+
+add-apt-repository ppa:webupd8team/java --yes
+apt update --yes
+
+## https://askubuntu.com/questions/190582/installing-java-automatically-with-silent-option
+
+echo debconf shared/accepted-oracle-license-v1-1 select true | \
+sudo debconf-set-selections
+echo debconf shared/accepted-oracle-license-v1-1 seen true | \
+sudo debconf-set-selections
+
+## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
+apt install oracle-java8-set-default --yes
+
+
+
+## https://hadoop.apache.org/docs/r3.1.2/hadoop-project-dist/hadoop-common/SingleCluster.html
+
+apt install openssh-server --yes
+
+### NB: DO NOT USE PDSH
+### apt remove pdsh --yes
+## https://stackoverflow.com/questions/48189954/hadoop-start-dfs-sh-connection-refused
+## https://unix.stackexchange.com/questions/76722/pdsh-command-failed-with-connection-refused/77112#77112
+## DO NOT USE: ##export PDSH_RCMD_TYPE=ssh
+## apt-get install pdsh --yes
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## https://www.rosehosting.com/blog/list-all-installed-packages-with-apt-on-ubuntu/
 apt list --installed
 
@@ -42,4 +85,24 @@ apt-get autoremove --purge
 apt-get install p7zip rar unrar filezilla --yes
 
 apt-get update --yes
+
+
+
+
+
+## ==================================== RUN FROM HERE ==================================
+
+
+
+
+## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
+
+add-apt-repository ppa:webupd8team/java
+apt update
+apt install oracle-java8-set-default
+
+
+
+
+
 
