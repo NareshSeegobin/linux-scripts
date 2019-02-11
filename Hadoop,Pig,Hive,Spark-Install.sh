@@ -139,6 +139,10 @@ export YARN_NODEMANAGER_USER="root"
 ## https://unix.stackexchange.com/questions/76722/pdsh-command-failed-with-connection-refused/77112#77112
 ## DO NOT USE: ##export PDSH_RCMD_TYPE=ssh
 
+
+## https://stackoverflow.com/questions/21533725/hadoop-2-2-0-fails-running-start-dfs-sh-with-error-java-home-is-not-set-and-cou
+
+
 sbin/start-dfs.sh
 
 ## 3. Browse the web interface for the NameNode; by default it is available at:
