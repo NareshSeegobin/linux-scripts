@@ -7,6 +7,9 @@
 ## 20190208 0840 - added https://hadoop.apache.org/
 ## 20190211 1319 - added Hadoop execution scripts.      
 ##                 NB: Run java installation in another shell script as root. Everyhting here is supposed to be executed in userland.
+## 20190211 1457 - Issue with executign the server as user. Run everyhting as root  --> sudo su    
+##                 As this is a VM, it is ok for now.
+
 
 
 ## https://wiki.apache.org/hadoop/HadoopJavaVersions
