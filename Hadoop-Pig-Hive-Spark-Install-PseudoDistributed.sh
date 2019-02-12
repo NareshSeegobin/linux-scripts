@@ -182,7 +182,34 @@ bin/hdfs dfs -cat output/*
 sbin/stop-dfs.sh
 
 
+### Hadoop Home and bin
+## https://www.tutorialspoint.com/hadoop/hadoop_enviornment_setup.htm
 
+export HADOOP_HOME=/home/student/Hadoop-et-al/hadoop-3.1.2
+export HADOOP_MAPRED_HOME=$HADOOP_HOME 
+export HADOOP_COMMON_HOME=$HADOOP_HOME 
+
+export HADOOP_HDFS_HOME=$HADOOP_HOME 
+export YARN_HOME=$HADOOP_HOME 
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native 
+export HADOOP_INSTALL=$HADOOP_HOME 
+
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"
+
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin 
+
+
+### Apache Hive
+
+## https://www.edureka.co/blog/apache-hive-installation-on-ubuntu
+
+cd ../
+cd ./apache-hive-3.1.1-bin
+
+# Set HIVE_HOME
+export HIVE_HOME=/home/student/Hadoop-et-al/apache-hive-3.1.1-bin
+export PATH=$PATH:/home/student/Hadoop-et-al/apache-hive-3.1.1-bin
 
 
 
