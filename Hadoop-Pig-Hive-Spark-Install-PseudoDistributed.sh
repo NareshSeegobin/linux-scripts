@@ -10,6 +10,9 @@
 ## 20190211 1457 - Issue with executign the server as user. Run everyhting as root  --> sudo su    
 ##                 As this is a VM, it is ok for now.
 ## 20190212 0900 - Hadoop works.     Need to add JAVA_HOME in etc/hadoop/hadoop-env.sh file
+## 20190212 1142 - Apache Hive works with Hadoop. Must use correct path statements.
+## 
+
 
 ## Good Hadoop config primer:
 ## http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/
@@ -185,6 +188,8 @@ sbin/stop-dfs.sh
 ### Hadoop Home and bin
 ## https://www.tutorialspoint.com/hadoop/hadoop_enviornment_setup.htm
 
+export JAVA_HOME="/usr/lib/jvm/java-8-oracle/"
+
 export HADOOP_HOME=/home/student/Hadoop-et-al/hadoop-3.1.2
 export HADOOP_MAPRED_HOME=$HADOOP_HOME 
 export HADOOP_COMMON_HOME=$HADOOP_HOME 
@@ -203,6 +208,8 @@ export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
 ### Apache Hive
 
 ## https://www.edureka.co/blog/apache-hive-installation-on-ubuntu
+
+$HADOOP_HOME/sbin/start-dfs.sh
 
 cd ../
 cd ./apache-hive-3.1.1-bin
@@ -256,7 +263,7 @@ hive
 
 ## Step 11: Run few queries in Hive shell.
 show databases;
-create table employee (id string, name string, dept string) row format delimited fields terminated by ‘\t’ stored as textfile;
+create table employee (id string, name string, dept string) row format delimited fields terminated by '\t' stored as textfile;
 show tables;
 
 ## Step 12: To exit from Hive:
