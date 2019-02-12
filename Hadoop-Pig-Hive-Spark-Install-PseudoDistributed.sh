@@ -286,17 +286,20 @@ exit;
 ## http://pig.apache.org/docs/r0.17.0/start.html
 
 
+export APACHE_PIG_HOME=/home/student/hadoop-et-al/pig-0.17.0
+export PATH=$APACHE_PIG_HOME/bin:$PATH
+
+pig -help
 
 
 
 
 ### SPARK Install and test
 ## https://www.linode.com/docs/databases/hadoop/install-configure-run-spark-on-top-of-hadoop-yarn-cluster/
+## https://www.dezyre.com/apache-spark-tutorial/spark-tutorial
 
-export APACHE_PIG_HOME=/home/student/hadoop-et-al/pig-0.17.0
-export PATH=$APACHE_PIG_HOME/bin:$PATH
-
-pig -help
+export APACHE_SPARK_HOME=/home/student/hadoop-et-al/spark-2.4.0-bin-hadoop2.7
+export PATH=$PATH:$APACHE_SPARK_HOME/bin
 
 
 
