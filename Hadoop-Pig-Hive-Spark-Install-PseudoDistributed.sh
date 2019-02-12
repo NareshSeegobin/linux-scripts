@@ -114,7 +114,11 @@ export JAVA_HOME="/usr/lib/jvm/java-8-oracle/"
 ## TO DO LATER: sed -i -e '/<property>/,/<\/property>/ s|<name>[0-9a-z.]\{1,\}</name>|<name>dfs.replication</name>|g' etc/hadoop/core-site.xml
 ## TO DO LATER: sed -i -e '/<property>/,/<\/property>/ s|<value>[0-9a-z.]\{1,\}</value>|<value>hdfs://localhost:9000</value>|g' etc/hadoop/core-site.xml
 
+wget -c https://raw.githubusercontent.com/nseegobin/linux-scripts/master/core-site.xml
+mv core-site.xml etc/hadoop/core-site.xml
 
+wget -c https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hdfs-site.xml
+mv hdfs-site.xml etc/hadoop/hdfs-site.xml
 
 
 
@@ -151,9 +155,13 @@ export YARN_NODEMANAGER_USER="root"
 
 ## https://stackoverflow.com/questions/21533725/hadoop-2-2-0-fails-running-start-dfs-sh-with-error-java-home-is-not-set-and-cou
 
+############        add JAVA_HOME in etc/hadoop/hadoop-env.sh file
+wget -c https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hadoop-env.sh
+mv hadoop-env.sh etc/hadoop/hadoop-env.sh
+
 sbin/start-dfs.sh
 
-############        add JAVA_HOME in etc/hadoop/hadoop-env.sh file
+
 
 
 ## 3. Browse the web interface for the NameNode; by default it is available at:
