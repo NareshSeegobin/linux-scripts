@@ -94,7 +94,19 @@ apt-get update --yes
 
 sudo su
 
+
+## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
+
+add-apt-repository ppa:webupd8team/java
+apt update --yes
+apt install oracle-java8-set-default --yes
+
+
+
+
+
 apt install p7zip rar unrar filezilla --yes
+apt install python --yes
 apt install python-pip --yes
 apt install python3-pip --yes
 sudo -H pip install bokeh -v
@@ -102,11 +114,12 @@ sudo -H pip3 install bokeh -v
 sudo -H pip install pandas -v
 sudo -H pip3 install pandas -v
 
-## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
 
-add-apt-repository ppa:webupd8team/java
-apt update --yes
-apt install oracle-java8-set-default --yes
+## https://www.dezyre.com/apache-spark-tutorial/spark-tutorial
+sudo apt install scala --yes
+
+
+
 
 
 
