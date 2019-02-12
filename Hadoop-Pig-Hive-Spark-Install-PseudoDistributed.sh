@@ -126,7 +126,7 @@ mkdir input
 cp etc/hadoop/*.xml input
 
 ## 1. Format the filesystem:
-bin/hdfs namenode -format
+echo y | bin/hdfs namenode -format
 
 ## 2. Start NameNode daemon and DataNode daemon:
 ### DO NOT USE: sudo -E bash -c 'echo $HTTP_PROXY'
@@ -155,7 +155,7 @@ sbin/start-dfs.sh
 
 ## 3. Browse the web interface for the NameNode; by default it is available at:
 ## NameNode - http://localhost:9870/
-/usr/bin/firefox http://localhost:9870/ &
+## /usr/bin/firefox http://localhost:9870/ &
 
 ## 4. Make the HDFS directories required to execute MapReduce jobs:
 bin/hdfs dfs -mkdir /user
