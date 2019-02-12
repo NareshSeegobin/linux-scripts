@@ -50,7 +50,7 @@
 ## https://www-us.apache.org/dist/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz
 
 
-### rm -rf ./Hadoop-et-al & rm -rf ./hadoop-et-al
+### rm -rf ./hadoop-et-al & rm -rf ./hadoop-et-al
 
 mkdir ./hadoop-et-al
 cd ./hadoop-et-al
@@ -199,7 +199,7 @@ sbin/stop-dfs.sh
 
 export JAVA_HOME="/usr/lib/jvm/java-8-oracle/"
 
-export HADOOP_HOME=/home/student/Hadoop-et-al/hadoop-3.1.2
+export HADOOP_HOME=/home/student/hadoop-et-al/hadoop-3.1.2
 export HADOOP_MAPRED_HOME=$HADOOP_HOME 
 export HADOOP_COMMON_HOME=$HADOOP_HOME 
 
@@ -224,8 +224,8 @@ cd ../
 cd ./apache-hive-3.1.1-bin
 
 # Set HIVE_HOME
-export HIVE_HOME=/home/student/Hadoop-et-al/apache-hive-3.1.1-bin
-export PATH=$PATH:/home/student/Hadoop-et-al/apache-hive-3.1.1-bin/bin
+export HIVE_HOME=/home/student/hadoop-et-al/apache-hive-3.1.1-bin
+export PATH=$PATH:/home/student/hadoop-et-al/apache-hive-3.1.1-bin/bin
 
 ## Step 4: Check hive version.
 hive --version
@@ -242,17 +242,17 @@ hdfs dfs -chmod g+w /tmp
 ## Step 7:  Set Hadoop path in hive-env.sh
 ##cd apache-hive-2.1.0-bin/
 ### 
-### export HADOOP_HOME=/home/student/Hadoop-et-al/hadoop-3.1.2
+### export HADOOP_HOME=/home/student/hadoop-et-al/hadoop-3.1.2
 ### export HADOOP_HEAPSIZE=512
 ### 
-### export HIVE_CONF_DIR=/home/student/Hadoop-et-al/apache-hive-3.1.1-bin/conf
+### export HIVE_CONF_DIR=/home/student/hadoop-et-al/apache-hive-3.1.1-bin/conf
 
 
 cp conf/hive-env.sh.template conf/hive-env.sh
 ## chmod 755 conf/hive-env.sh
-echo export HADOOP_HOME=/home/student/Hadoop-et-al/hadoop-3.1.2 >> conf/hive-env.sh
+echo export HADOOP_HOME=/home/student/hadoop-et-al/hadoop-3.1.2 >> conf/hive-env.sh
 echo export HADOOP_HEAPSIZE=512 >> conf/hive-env.sh
-echo export HIVE_CONF_DIR=/home/student/Hadoop-et-al/apache-hive-3.1.1-bin/conf >> conf/hive-env.sh
+echo export HIVE_CONF_DIR=/home/student/hadoop-et-al/apache-hive-3.1.1-bin/conf >> conf/hive-env.sh
 
 
 
@@ -282,6 +282,21 @@ exit;
 
 
 
+### Pig install and test
+## http://pig.apache.org/docs/r0.17.0/start.html
+
+
+
+
+
+
+### SPARK Install and test
+## https://www.linode.com/docs/databases/hadoop/install-configure-run-spark-on-top-of-hadoop-yarn-cluster/
+
+export APACHE_PIG_HOME=/home/student/hadoop-et-al/pig-0.17.0
+export PATH=$APACHE_PIG_HOME/bin:$PATH
+
+pig -help
 
 
 
