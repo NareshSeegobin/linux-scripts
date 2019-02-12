@@ -209,7 +209,62 @@ cd ./apache-hive-3.1.1-bin
 
 # Set HIVE_HOME
 export HIVE_HOME=/home/student/Hadoop-et-al/apache-hive-3.1.1-bin
-export PATH=$PATH:/home/student/Hadoop-et-al/apache-hive-3.1.1-bin
+export PATH=$PATH:/home/student/Hadoop-et-al/apache-hive-3.1.1-bin/bin
+
+## Step 4: Check hive version.
+hive --version
+
+## Step 5:  Create Hive directories within HDFS. The directory ‘warehouse’ is the location to store the table or data related to hive.
+hdfs dfs -mkdir -p /user/hive/warehouse
+hdfs dfs -mkdir /tmp
+
+## Step 6: Set read/write permissions for table.
+hdfs dfs -chmod g+w /user/hive/warehouse
+hdfs dfs -chmod g+w /tmp
+
+
+## Step 7:  Set Hadoop path in hive-env.sh
+##cd apache-hive-2.1.0-bin/
+### 
+### export HADOOP_HOME=/home/student/Hadoop-et-al/hadoop-3.1.2
+### export HADOOP_HEAPSIZE=512
+### 
+### export HIVE_CONF_DIR=/home/student/Hadoop-et-al/apache-hive-3.1.1-bin/conf
+
+
+cp conf/hive-env.sh.template conf/hive-env.sh
+## chmod 755 conf/hive-env.sh
+echo export HADOOP_HOME=/home/student/Hadoop-et-al/hadoop-3.1.2 >> conf/hive-env.sh
+echo export HADOOP_HEAPSIZE=512 >> conf/hive-env.sh
+echo export HIVE_CONF_DIR=/home/student/Hadoop-et-al/apache-hive-3.1.1-bin/conf >> conf/hive-env.sh
+
+
+
+## Step 8: Edit hive-site.xml
+## Command: gedit conf/hive-site.xml
+wget -c https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hive-site.xml
+mv hive-site.xml conf/hive-site.xml
+
+## Step 9: By default, Hive uses Derby database. Initialize Derby database.
+
+bin/schematool -initSchema -dbType derby
+
+
+## Step 10: Launch Hive.
+hive
+
+
+## Step 11: Run few queries in Hive shell.
+show databases;
+create table employee (id string, name string, dept string) row format delimited fields terminated by ‘\t’ stored as textfile;
+show tables;
+
+## Step 12: To exit from Hive:
+exit;
+
+
+
+
 
 
 
