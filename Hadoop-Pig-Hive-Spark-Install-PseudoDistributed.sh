@@ -9,8 +9,10 @@
 ##                 NB: Run java installation in another shell script as root. Everyhting here is supposed to be executed in userland.
 ## 20190211 1457 - Issue with executign the server as user. Run everyhting as root  --> sudo su    
 ##                 As this is a VM, it is ok for now.
+## 20190212 0900 - Hadoop works.     Need to add JAVA_HOME in etc/hadoop/hadoop-env.sh file
 
-
+## Good Hadoop config primer:
+## http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/
 
 ## https://wiki.apache.org/hadoop/HadoopJavaVersions
 ## https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
@@ -69,6 +71,7 @@ tar -xvf ./spark-2.4.0-bin-hadoop2.7.tgz
 ## JAVA_HOME="/usr/lib/jvm/java-8-oracle/"
 
 export JAVA_HOME="/usr/lib/jvm/java-8-oracle/"
+
 
 ### ============================Standalone Operation    =============================================
 
@@ -145,11 +148,9 @@ export YARN_NODEMANAGER_USER="root"
 
 ## https://stackoverflow.com/questions/21533725/hadoop-2-2-0-fails-running-start-dfs-sh-with-error-java-home-is-not-set-and-cou
 
-
 sbin/start-dfs.sh
 
-############        [ ERROR AT THIS POINT ]
-############        [ PLEASE TROUBLESHOOT ] 
+############        add JAVA_HOME in etc/hadoop/hadoop-env.sh file
 
 
 ## 3. Browse the web interface for the NameNode; by default it is available at:
@@ -158,7 +159,9 @@ sbin/start-dfs.sh
 
 ## 4. Make the HDFS directories required to execute MapReduce jobs:
 bin/hdfs dfs -mkdir /user
-bin/hdfs dfs -mkdir /user/<username>
+## bin/hdfs dfs -mkdir /user/<username>
+## change root to correct username
+bin/hdfs dfs -mkdir /user/root
 
 ## 5. Copy the input files into the distributed filesystem:
 bin/hdfs dfs -mkdir input
