@@ -89,17 +89,26 @@ apt-get update --yes
 
 
 
-
+## =====================================================================================
 ## ==================================== RUN FROM HERE ==================================
 
+sudo su
 
-
+apt install p7zip rar unrar filezilla --yes
+apt install python-pip --yes
+apt install python3-pip --yes
+sudo -H pip install bokeh -v
+sudo -H pip3 install bokeh -v
+sudo -H pip install pandas -v
+sudo -H pip3 install pandas -v
 
 ## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
 
 add-apt-repository ppa:webupd8team/java
-apt update
-apt install oracle-java8-set-default
+apt update --yes
+apt install oracle-java8-set-default --yes
+
+
 
 
 
