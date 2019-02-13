@@ -229,7 +229,7 @@ cd ./apache-hive-3.1.1-bin
 
 # Set HIVE_HOME
 export HIVE_HOME=/home/student/hadoop-et-al/apache-hive-3.1.1-bin
-export PATH=$PATH:/home/student/hadoop-et-al/apache-hive-3.1.1-bin/bin
+export PATH=$PATH:$HIVE_HOME/bin
 
 ## Step 4: Check hive version.
 hive --version
@@ -256,7 +256,8 @@ cp conf/hive-env.sh.template conf/hive-env.sh
 ## chmod 755 conf/hive-env.sh
 echo export HADOOP_HOME=/home/student/hadoop-et-al/hadoop-3.1.2 >> conf/hive-env.sh
 echo export HADOOP_HEAPSIZE=512 >> conf/hive-env.sh
-echo export HIVE_CONF_DIR=/home/student/hadoop-et-al/apache-hive-3.1.1-bin/conf >> conf/hive-env.sh
+echo export HIVE_HOME=/home/student/hadoop-et-al/apache-hive-3.1.1-bin >> conf/hive-env.sh
+echo export HIVE_CONF_DIR=$HIVE_HOME/conf >> conf/hive-env.sh
 
 
 
