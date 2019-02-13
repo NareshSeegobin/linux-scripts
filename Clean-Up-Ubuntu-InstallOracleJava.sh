@@ -4,6 +4,60 @@
 ## Version History:
 ## 20190207 1444 - Initial version
 ## 20190208 0840 - added https://www.osboxes.org/ubuntu/
+## 20190213 1033 - Re-arranged order of scripts. Simple applications first, Java, Python, PIP, modules
+
+
+
+
+
+## =====================================================================================
+## ==================================== RUN FROM HERE ==================================
+
+sudo su
+
+
+## https://hadoop.apache.org/docs/r3.1.2/hadoop-project-dist/hadoop-common/SingleCluster.html
+apt install openssh-server --yes
+
+
+## https://www.dezyre.com/apache-spark-tutorial/spark-tutorial
+apt install scala --yes
+
+
+apt install p7zip rar unrar filezilla --yes
+apt install python --yes
+apt install python-pip --yes
+apt install python3-pip --yes
+
+
+## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
+add-apt-repository ppa:webupd8team/java
+apt update --yes
+
+## https://askubuntu.com/questions/190582/installing-java-automatically-with-silent-option
+echo debconf shared/accepted-oracle-license-v1-1 select true | \
+sudo debconf-set-selections
+echo debconf shared/accepted-oracle-license-v1-1 seen true | \
+sudo debconf-set-selections
+
+apt install oracle-java8-set-default --yes
+
+
+exit
+sudo -H pip install bokeh -v
+sudo -H pip3 install bokeh -v
+sudo -H pip install pandas -v
+sudo -H pip3 install pandas -v
+
+
+
+
+## ===============================================================================================================================
+
+
+
+
+
 
 ## https://www.osboxes.org/ubuntu/
 
@@ -19,12 +73,10 @@ sudo su
 ## https://wiki.apache.org/hadoop/HadoopJavaVersions
 ## https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
 ## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
-
 add-apt-repository ppa:webupd8team/java --yes
 apt update --yes
 
 ## https://askubuntu.com/questions/190582/installing-java-automatically-with-silent-option
-
 echo debconf shared/accepted-oracle-license-v1-1 select true | \
 sudo debconf-set-selections
 echo debconf shared/accepted-oracle-license-v1-1 seen true | \
@@ -36,7 +88,6 @@ apt install oracle-java8-set-default --yes
 
 
 ## https://hadoop.apache.org/docs/r3.1.2/hadoop-project-dist/hadoop-common/SingleCluster.html
-
 apt install openssh-server --yes
 
 ### NB: DO NOT USE PDSH
@@ -86,37 +137,6 @@ apt-get install p7zip rar unrar filezilla --yes
 
 apt-get update --yes
 
-
-
-
-## =====================================================================================
-## ==================================== RUN FROM HERE ==================================
-
-sudo su
-
-
-## https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
-
-add-apt-repository ppa:webupd8team/java
-apt update --yes
-apt install oracle-java8-set-default --yes
-
-
-
-
-
-apt install p7zip rar unrar filezilla --yes
-apt install python --yes
-apt install python-pip --yes
-apt install python3-pip --yes
-sudo -H pip install bokeh -v
-sudo -H pip3 install bokeh -v
-sudo -H pip install pandas -v
-sudo -H pip3 install pandas -v
-
-
-## https://www.dezyre.com/apache-spark-tutorial/spark-tutorial
-sudo apt install scala --yes
 
 
 
