@@ -11,6 +11,8 @@
 ##                 As this is a VM, it is ok for now.
 ## 20190212 0900 - Hadoop works.     Need to add JAVA_HOME in etc/hadoop/hadoop-env.sh file
 ## 20190212 1142 - Apache Hive works with Hadoop. Must use correct path statements.
+## 20190213 1025 - Apache Pig and Spark works once the correct path statements are set.
+## 
 ## 
 
 
@@ -114,6 +116,8 @@ export JAVA_HOME="/usr/lib/jvm/java-8-oracle/"
 ## DO NOT USE: ## sed ':a;N;$!ba; s|<configuration>.*<\/configuration>|<configuration\/>|g' etc/hadoop/core-site.xml
 ## TO DO LATER: sed -i -e '/<property>/,/<\/property>/ s|<name>[0-9a-z.]\{1,\}</name>|<name>dfs.replication</name>|g' etc/hadoop/core-site.xml
 ## TO DO LATER: sed -i -e '/<property>/,/<\/property>/ s|<value>[0-9a-z.]\{1,\}</value>|<value>hdfs://localhost:9000</value>|g' etc/hadoop/core-site.xml
+
+cd ./hadoop-3.1.2
 
 wget -c https://raw.githubusercontent.com/nseegobin/linux-scripts/master/core-site.xml
 mv core-site.xml etc/hadoop/core-site.xml
@@ -267,15 +271,16 @@ bin/schematool -initSchema -dbType derby
 
 
 ## Step 10: Launch Hive.
+## Step 11: Run few queries in Hive shell.
+## Step 12: To exit from Hive:
+
 hive
 
-
-## Step 11: Run few queries in Hive shell.
 show databases;
+drop table employee;
 create table employee (id string, name string, dept string) row format delimited fields terminated by '\t' stored as textfile;
 show tables;
 
-## Step 12: To exit from Hive:
 exit;
 
 
@@ -290,6 +295,8 @@ export APACHE_PIG_HOME=/home/student/hadoop-et-al/pig-0.17.0
 export PATH=$APACHE_PIG_HOME/bin:$PATH
 
 pig -help
+pig
+quit
 
 
 
@@ -300,6 +307,11 @@ pig -help
 
 export APACHE_SPARK_HOME=/home/student/hadoop-et-al/spark-2.4.0-bin-hadoop2.7
 export PATH=$PATH:$APACHE_SPARK_HOME/bin
+
+spark-shell --help
+spark-shell
+quit
+
 
 
 
