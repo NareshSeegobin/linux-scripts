@@ -127,10 +127,10 @@ export JAVA_HOME="/usr/lib/jvm/java-8-oracle/"
 
 cd ./hadoop-3.1.2
 
-wget -c https://raw.githubusercontent.com/nseegobin/linux-scripts/master/core-site.xml
+wget -N https://raw.githubusercontent.com/nseegobin/linux-scripts/master/core-site.xml
 mv core-site.xml etc/hadoop/core-site.xml
 
-wget -c https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hdfs-site.xml
+wget -N https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hdfs-site.xml
 mv hdfs-site.xml etc/hadoop/hdfs-site.xml
 
 
@@ -169,14 +169,14 @@ export YARN_NODEMANAGER_USER="root"
 ## https://stackoverflow.com/questions/21533725/hadoop-2-2-0-fails-running-start-dfs-sh-with-error-java-home-is-not-set-and-cou
 
 ############        add JAVA_HOME in etc/hadoop/hadoop-env.sh file
-wget -c https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hadoop-env.sh
+wget -N https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hadoop-env.sh
 mv hadoop-env.sh etc/hadoop/hadoop-env.sh
 
 sbin/start-dfs.sh
 
 ## https://www.quora.com/Is-it-possible-to-have-multiple-data-nodes-in-pseudo-distributed-Hadoop
 ## https://bigdata.wordpress.com/2010/05/27/hadoop-cookbook-4-how-to-run-multiple-data-nodes-on-one-machine/
-wget -c https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hadoop/run-additionalDN.sh
+wget -N https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hadoop/run-additionalDN.sh
 ## https://www.oodlestechnologies.com/blogs/Different-ways-to-start-hadoop-daemon-processes-and-difference-among-them.
 ####  supposed to be SBIN all the itme - ln bin/hadoop bin/hadoop-daemon.sh
 mv -f run-additionalDN.sh sbin/run-additionalDN.sh
@@ -279,7 +279,7 @@ echo export HIVE_CONF_DIR=$HIVE_HOME/conf >> conf/hive-env.sh
 
 ## Step 8: Edit hive-site.xml
 ## Command: gedit conf/hive-site.xml
-wget -c https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hive-site.xml
+wget -N https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hive-site.xml
 mv hive-site.xml conf/hive-site.xml
 
 ## Step 9: By default, Hive uses Derby database. Initialize Derby database.
