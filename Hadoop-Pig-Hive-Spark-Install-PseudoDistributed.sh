@@ -186,8 +186,8 @@ wget -N https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hadoop/
 mv -f run-additionalDN.sh sbin/run-additionalDN.sh
 chmod 755 sbin/run-additionalDN.sh
 sbin/run-additionalDN.sh start 1 &
-sbin/run-additionalDN.sh start 2 &
-sbin/run-additionalDN.sh start 3 &
+## sbin/run-additionalDN.sh start 2 &
+## sbin/run-additionalDN.sh start 3 &
 
 
 
@@ -218,8 +218,9 @@ cat output/*
 bin/hdfs dfs -cat output/*
 
 ## 8. When you’re done, stop the daemons with:
-sbin/stop-dfs.sh
-bin/run-additionalDN.sh stop 5
+## Don't bother stopping for the test environment.
+## sbin/stop-dfs.sh
+## sbin/run-additionalDN.sh stop 3
 
 ### Hadoop Home and bin
 ## https://www.tutorialspoint.com/hadoop/hadoop_enviornment_setup.htm
@@ -245,7 +246,7 @@ export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
 
 ## https://www.edureka.co/blog/apache-hive-installation-on-ubuntu
 
-$HADOOP_HOME/sbin/start-dfs.sh
+## $HADOOP_HOME/sbin/start-dfs.sh
 
 cd ../
 cd ./apache-hive-3.1.1-bin
