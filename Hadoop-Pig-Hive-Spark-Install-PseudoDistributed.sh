@@ -177,6 +177,7 @@ sbin/start-dfs.sh
 ## https://www.quora.com/Is-it-possible-to-have-multiple-data-nodes-in-pseudo-distributed-Hadoop
 ## https://bigdata.wordpress.com/2010/05/27/hadoop-cookbook-4-how-to-run-multiple-data-nodes-on-one-machine/
 wget -c https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hadoop/run-additionalDN.sh
+ln bin/hadoop bin/hadoop-daemon.sh
 mv -f run-additionalDN.sh bin/run-additionalDN.sh
 chmod 755 bin/run-additionalDN.sh
 bin/run-additionalDN.sh start 5
