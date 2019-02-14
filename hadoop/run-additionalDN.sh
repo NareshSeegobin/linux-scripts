@@ -3,9 +3,14 @@
 # This is used for starting multiple datanodes on the same machine.
 # run it from hadoop-dir/ just like 'bin/hadoop' 
 # Other info https://www.quora.com/Is-it-possible-to-have-multiple-data-nodes-in-pseudo-distributed-Hadoop
+## Modified by Naresh Seegobin
+## 20190214 1353 - Updated code to use Hadoop 3.x.x parameters. 
+##                 Updated loop instead of using shift; seems that the paramater is ignored and only one avlue is passed.
 
 #Usage: run-additionalDN.sh [start|stop] dnnumber
 #e.g. run-datanode.sh start 2
+## NS Notes: "dnnumber" represents the node number NOT the number of instances.
+## Run this each time with a different dnnumber value to create a seperate data node with corresponding parameters.
 
 ## Place these outside the script file
 ## rm -rf /tmp/hadoop-additional-datanodes
@@ -37,13 +42,12 @@ DN_CONF_OPTS=" \
  }
 
 cmd=$1
-## shift;
+shift;
 ## https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_09_07.html
 ## https://www.cyberciti.biz/faq/bash-for-loop/
 ## https://devhints.io/bash
 
-## for i in $*
-for i in $2
+for i in $*
 do
 echo $cmd $i
 run_datanode  $cmd $i
