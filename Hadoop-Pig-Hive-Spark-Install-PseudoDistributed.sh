@@ -61,7 +61,7 @@ rm -rf ./hadoop-3.1.2
 rm -rf ./apache-hive-3.1.1-bin
 rm -rf ./pig-0.17.0
 rm -rf ./spark-2.4.0-bin-hadoop2.7
-rm -rf /tmp/hadoop-*
+rm -rf /tmp/hadoop*
 
 
 wget -nc https://www-us.apache.org/dist/hadoop/common/hadoop-3.1.2/hadoop-3.1.2.tar.gz
