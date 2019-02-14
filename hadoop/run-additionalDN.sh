@@ -1,5 +1,6 @@
 #!/bin/sh
 # File Author: https://bigdata.wordpress.com/2010/05/27/hadoop-cookbook-4-how-to-run-multiple-data-nodes-on-one-machine/
+# Original Filename: run-additionalDN.sh
 # This is used for starting multiple datanodes on the same machine.
 # run it from hadoop-dir/ just like 'bin/hadoop' 
 # Other info https://www.quora.com/Is-it-possible-to-have-multiple-data-nodes-in-pseudo-distributed-Hadoop
