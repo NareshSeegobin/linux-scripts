@@ -58,5 +58,5 @@ shift;
 for i in $*
 do
 echo $cmd $i
-run_datanode  $cmd $i &
+run_datanode  $cmd $i
 done
