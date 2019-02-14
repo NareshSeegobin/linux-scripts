@@ -27,6 +27,8 @@ DN_CONF_OPTS="\
 -Ddfs.datanode.address=0.0.0.0:5001$DN \
 -Ddfs.datanode.http.address=0.0.0.0:5008$DN \
 -Ddfs.datanode.ipc.address=0.0.0.0:5002$DN"
+ 
+ ## https://www.oodlestechnologies.com/blogs/Different-ways-to-start-hadoop-daemon-processes-and-difference-among-them.
  sbin/hadoop-daemon.sh --script bin/hdfs $1 datanode $DN_CONF_OPTS 
 }
 
