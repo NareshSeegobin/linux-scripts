@@ -46,5 +46,5 @@ cmd=$1
 for i in $2
 do
 echo $cmd $i
-run_datanode  $cmd $i &&
+run_datanode  $cmd $i
 done
