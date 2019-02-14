@@ -175,6 +175,9 @@ mv hadoop-env.sh etc/hadoop/hadoop-env.sh
 sbin/start-dfs.sh
 sbin/start-yarn.sh
 
+
+rm -rf /tmp/hadoop-additional-datanodes
+mkdir /tmp/hadoop-additional-datanodes
 ## https://www.quora.com/Is-it-possible-to-have-multiple-data-nodes-in-pseudo-distributed-Hadoop
 ## https://bigdata.wordpress.com/2010/05/27/hadoop-cookbook-4-how-to-run-multiple-data-nodes-on-one-machine/
 wget -N https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hadoop/run-additionalDN.sh
