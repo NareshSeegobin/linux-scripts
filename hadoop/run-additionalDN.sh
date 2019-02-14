@@ -42,6 +42,7 @@ DN_CONF_OPTS=" \
   bin/hdfs --daemon $1 datanode $DN_CONF_OPTS 
   
  ## https://acadgild.com/blog/commissioning-and-decommissioning-of-datanode-in-hadoop
+ ## http://fibrevillage.com/storage/628-how-to-add-a-new-datanode-to-a-running-hadoop-cluster
  bin/hdfs dfsadmin --refreshNodes
  bin/hadoop balancer
  }
