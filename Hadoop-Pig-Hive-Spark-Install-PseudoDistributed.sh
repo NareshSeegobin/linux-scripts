@@ -319,7 +319,7 @@ export PATH=$PATH:$APACHE_SPARK_HOME/bin
 
 spark-shell --help
 spark-shell
-quit
+:quit
 
 
 
