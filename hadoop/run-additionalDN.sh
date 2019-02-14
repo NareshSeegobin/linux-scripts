@@ -7,7 +7,11 @@
 #Usage: run-additionalDN.sh [start|stop] dnnumber
 #e.g. run-datanode.sh start 2
 
-DN_DIR_PREFIX="/path/to/store/data_and_log_of_additionalDN/"
+rm -rf /tmp/hadoop-additional-datanodes
+mkdir /tmp/hadoop-additional-datanodes
+
+## DN_DIR_PREFIX="/path/to/store/data_and_log_of_additionalDN/"
+DN_DIR_PREFIX="/tmp/hadoop-additional-datanodes/"
 
 if [ -z $DN_DIR_PREFIX ]; then
 echo $0: DN_DIR_PREFIX is not set. set it to something like "/hadoopTmp/dn"
