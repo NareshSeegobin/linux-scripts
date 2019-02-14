@@ -177,10 +177,11 @@ sbin/start-dfs.sh
 ## https://www.quora.com/Is-it-possible-to-have-multiple-data-nodes-in-pseudo-distributed-Hadoop
 ## https://bigdata.wordpress.com/2010/05/27/hadoop-cookbook-4-how-to-run-multiple-data-nodes-on-one-machine/
 wget -c https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hadoop/run-additionalDN.sh
-ln bin/hadoop bin/hadoop-daemon.sh
-mv -f run-additionalDN.sh bin/run-additionalDN.sh
-chmod 755 bin/run-additionalDN.sh
-bin/run-additionalDN.sh start 5
+## https://www.oodlestechnologies.com/blogs/Different-ways-to-start-hadoop-daemon-processes-and-difference-among-them.
+####  supposed to be SBIN all the itme - ln bin/hadoop bin/hadoop-daemon.sh
+mv -f run-additionalDN.sh sbin/run-additionalDN.sh
+chmod 755 sbin/run-additionalDN.sh
+sbin/run-additionalDN.sh start 5
 
 
 
