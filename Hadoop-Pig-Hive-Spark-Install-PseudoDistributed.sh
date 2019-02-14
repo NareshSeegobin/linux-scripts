@@ -173,6 +173,7 @@ wget -N https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hadoop-
 mv hadoop-env.sh etc/hadoop/hadoop-env.sh
 
 sbin/start-dfs.sh
+sbin/start-yarn.sh
 
 ## https://www.quora.com/Is-it-possible-to-have-multiple-data-nodes-in-pseudo-distributed-Hadoop
 ## https://bigdata.wordpress.com/2010/05/27/hadoop-cookbook-4-how-to-run-multiple-data-nodes-on-one-machine/
@@ -181,7 +182,10 @@ wget -N https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hadoop/
 ####  supposed to be SBIN all the itme - ln bin/hadoop bin/hadoop-daemon.sh
 mv -f run-additionalDN.sh sbin/run-additionalDN.sh
 chmod 755 sbin/run-additionalDN.sh
-sbin/run-additionalDN.sh start 5
+sbin/run-additionalDN.sh start 1 &
+sbin/run-additionalDN.sh start 2 &
+sbin/run-additionalDN.sh start 3 &
+
 
 
 
