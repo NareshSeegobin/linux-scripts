@@ -37,10 +37,11 @@ DN_CONF_OPTS=" \
  }
 
 cmd=$1
-shift;
+## shift;
 
-for i in $*
+## for i in $*
+for i in $2
 do
 echo $cmd $i
-run_datanode  $cmd $i
+run_datanode  $cmd $i &&
 done
