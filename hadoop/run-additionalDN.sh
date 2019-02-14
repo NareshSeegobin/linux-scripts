@@ -40,6 +40,9 @@ DN_CONF_OPTS=" \
  ## https://hadoop.apache.org/docs/r3.0.3/hadoop-project-dist/hadoop-common/ClusterSetup.html
  ## bin/hadoop-daemon.sh --daemon $1 datanode $DN_CONF_OPTS 
   bin/hdfs --daemon $1 datanode $DN_CONF_OPTS 
+  
+ ## https://acadgild.com/blog/commissioning-and-decommissioning-of-datanode-in-hadoop
+ bin/hdfs dfsadmin --refreshNodes
  }
 
 cmd=$1
