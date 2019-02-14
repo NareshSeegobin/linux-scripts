@@ -30,6 +30,7 @@ DN_CONF_OPTS="\
  
  ## https://www.oodlestechnologies.com/blogs/Different-ways-to-start-hadoop-daemon-processes-and-difference-among-them.
  ## sbin/hadoop-daemon.sh --script bin/hdfs $1 datanode $DN_CONF_OPTS 
+ ## Debugging erors in startup script
  sbin/hadoop-daemon.sh --daemon start bin/hdfs $1 datanode $DN_CONF_OPTS 
  }
 
