@@ -39,7 +39,6 @@ DN_CONF_OPTS=" \
  ## Debugging erors in startup script
  ## https://hadoop.apache.org/docs/r3.0.3/hadoop-project-dist/hadoop-common/ClusterSetup.html
  ## sbin/hadoop-daemon.sh --daemon $1 datanode $DN_CONF_OPTS 
- ## use sbin for the hadoop daemon
  ## bin/hdfs --daemon $1 datanode $DN_CONF_OPTS 
   sbin/hadoop-daemon.sh --daemon $1 datanode $DN_CONF_OPTS 
   
