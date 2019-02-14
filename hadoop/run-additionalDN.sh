@@ -43,6 +43,7 @@ DN_CONF_OPTS=" \
   
  ## https://acadgild.com/blog/commissioning-and-decommissioning-of-datanode-in-hadoop
  bin/hdfs dfsadmin --refreshNodes
+ bin/hadoop balancer
  }
 
 cmd=$1
@@ -54,5 +55,5 @@ shift;
 for i in $*
 do
 echo $cmd $i
-run_datanode  $cmd $i
+run_datanode  $cmd $i &
 done
