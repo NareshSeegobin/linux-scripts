@@ -12,7 +12,7 @@
 ## 20190212 0900 - Hadoop works.     Need to add JAVA_HOME in etc/hadoop/hadoop-env.sh file
 ## 20190212 1142 - Apache Hive works with Hadoop. Must use correct path statements.
 ## 20190213 1025 - Apache Pig and Spark works once the correct path statements are set.
-## 
+## 20190214 1034 - Final testing shows that all applications are working. Next step to move applications to /usr/local directory and populate .bashrc for global usage.
 ## 
 
 
