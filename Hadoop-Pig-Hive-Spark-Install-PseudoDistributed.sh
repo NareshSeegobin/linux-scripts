@@ -292,7 +292,7 @@ show tables;
 
 exit;
 
-
+$HADOOP_HOME/sbin/stop-dfs.sh
 
 
 
