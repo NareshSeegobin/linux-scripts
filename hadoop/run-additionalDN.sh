@@ -38,6 +38,9 @@ DN_CONF_OPTS=" \
 
 cmd=$1
 ## shift;
+## https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_09_07.html
+## https://www.cyberciti.biz/faq/bash-for-loop/
+## https://devhints.io/bash
 
 ## for i in $*
 for i in $2
