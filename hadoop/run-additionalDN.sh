@@ -39,13 +39,13 @@ DN_CONF_OPTS=" \
  ## Debugging erors in startup script
  ## https://hadoop.apache.org/docs/r3.0.3/hadoop-project-dist/hadoop-common/ClusterSetup.html
  ## sbin/hadoop-daemon.sh --daemon $1 datanode $DN_CONF_OPTS 
- ## bin/hdfs --daemon $1 datanode $DN_CONF_OPTS 
-  sbin/hadoop-daemon.sh --daemon $1 datanode $DN_CONF_OPTS 
+ ## sbin/hadoop-daemon.sh --daemon $1 datanode $DN_CONF_OPTS 
+ bin/hdfs --daemon $1 datanode $DN_CONF_OPTS 
   
  ## https://acadgild.com/blog/commissioning-and-decommissioning-of-datanode-in-hadoop
  ## http://fibrevillage.com/storage/628-how-to-add-a-new-datanode-to-a-running-hadoop-cluster
- bin/hdfs dfsadmin --refreshNodes
- bin/hadoop balancer
+ bin/hdfs dfsadmin -refreshNodes
+ bin/hdfs balancer
  }
 
 cmd=$1
