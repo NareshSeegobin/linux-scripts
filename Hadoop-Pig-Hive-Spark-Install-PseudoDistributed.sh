@@ -177,8 +177,9 @@ sbin/start-dfs.sh
 ## https://www.quora.com/Is-it-possible-to-have-multiple-data-nodes-in-pseudo-distributed-Hadoop
 ## https://bigdata.wordpress.com/2010/05/27/hadoop-cookbook-4-how-to-run-multiple-data-nodes-on-one-machine/
 wget -c https://raw.githubusercontent.com/nseegobin/linux-scripts/master/hadoop/run-additionalDN.sh
-mv -f run-additionalDN.sh sbin/run-additionalDN.sh
-sbin/run-additionalDN.sh start 5
+mv -f run-additionalDN.sh bin/run-additionalDN.sh
+chmod 755 bin/run-additionalDN.sh
+bin/run-additionalDN.sh start 5
 
 
 
@@ -209,7 +210,7 @@ bin/hdfs dfs -cat output/*
 
 ## 8. When you’re done, stop the daemons with:
 sbin/stop-dfs.sh
-sbin/run-additionalDN.sh stop 5
+bin/run-additionalDN.sh stop 5
 
 ### Hadoop Home and bin
 ## https://www.tutorialspoint.com/hadoop/hadoop_enviornment_setup.htm
@@ -298,7 +299,7 @@ show tables;
 exit;
 
 $HADOOP_HOME/sbin/stop-dfs.sh
-$HADOOP_HOME/sbin/run-additionalDN.sh stop 5
+$HADOOP_HOME/bin/run-additionalDN.sh stop 5
 
 
 ### Pig install and test
