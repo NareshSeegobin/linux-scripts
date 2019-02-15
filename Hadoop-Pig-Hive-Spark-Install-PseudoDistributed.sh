@@ -318,8 +318,8 @@ $HADOOP_HOME/sbin/stop-dfs.sh
 ## http://pig.apache.org/docs/r0.17.0/start.html
 
 
-export APACHE_PIG_HOME=/home/student/hadoop-et-al/pig-0.17.0
-export PATH=$APACHE_PIG_HOME/bin:$PATH
+export PIG_HOME=/home/student/hadoop-et-al/pig-0.17.0
+export PATH=$PIG_HOME/bin:$PATH
 
 pig -help
 pig
