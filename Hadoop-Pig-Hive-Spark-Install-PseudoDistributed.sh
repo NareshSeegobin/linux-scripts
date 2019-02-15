@@ -308,8 +308,10 @@ show tables;
 
 exit;
 
+$HADOOP_HOME/sbin/run-additionalDN.sh stop 1
+$HADOOP_HOME/sbin/stop-yarn.sh
 $HADOOP_HOME/sbin/stop-dfs.sh
-$HADOOP_HOME/bin/run-additionalDN.sh stop 5
+
 
 
 ### Pig install and test
