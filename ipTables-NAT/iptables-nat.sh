@@ -25,19 +25,6 @@ echo -n APLICANDO REGLAS...
 
 ## ENTRY 1 END
 
-## ENTRY 2 START - SWAP AS REQURED
-#  20231004 - Added by Naresh Seegobin for UWI INEGI
-  # ethernets:
-      # wlp1s0:
-        # dhcp4: yes
-      # enx00e04c6804f9:
-        # addresses:
-          # - 10.217.105.1/24
-
-## ENTRY 2 END - SWAP AS REQURED
-
-
-
 
 
 ##[] [STEP 2] - execute command below
