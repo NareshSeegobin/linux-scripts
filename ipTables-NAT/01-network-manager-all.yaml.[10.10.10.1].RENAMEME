@@ -1,0 +1,14 @@
+# Let NetworkManager manage all devices on this system
+network:
+  version: 2
+  renderer: NetworkManager
+
+##  20231004 - Added by Naresh Seegobin for SAMPLE
+  ethernets:
+      wlp1s0:
+        dhcp4: yes
+      enx00e04c6804f9:
+        addresses:
+          - 10.10.10.1/24
+
+
