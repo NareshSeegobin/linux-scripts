@@ -1,11 +1,13 @@
 #!/bin/bash
 #CHRISTIAN SOSA SCRIPT
+#NARESH SEEGOBIN Modifications
 echo -n APLICANDO REGLAS...
+echo -n APPLYING RULES...
 
 
 
 
-##[] [STEP 1] - edit /etc/netplan/01-network-manager-all.yaml and add/replace entries below
+##[] [STEP 1] - edit /etc/netplan/01-network-manager-all.yaml and add/replace entries below, remove comments as required.
 
 ## ENTRY 1 START
 
@@ -25,6 +27,19 @@ echo -n APLICANDO REGLAS...
 
 ## ENTRY 1 END
 
+## ENTRY 2 START - SWAP AS REQURED
+#  20231004 - Added by Naresh Seegobin for REDACTED
+  # ethernets:
+      # wlp1s0:
+        # dhcp4: yes
+      # enx00e04c6804f9:
+        # addresses:
+          # - REDACTED/24
+
+## ENTRY 2 END - SWAP AS REQURED
+
+
+
 
 
 ##[] [STEP 2] - execute command below
@@ -40,6 +55,7 @@ echo -n APLICANDO REGLAS...
 # /etc/sysctl.conf
 # net.ipv4.ip_forward=1
 
+sysctl -w net.ipv4.ip_forward=1
 
 
 
@@ -53,19 +69,20 @@ echo -n APLICANDO REGLAS...
 
 
 ##[] [STEP 5] - execute command below
-
+# sudo apt update -y 
 # apt install iptables-persistent
 
 
 
 
-##[] [STEP 6] - START BLOCK - execute command in the block below
+##[] [STEP 6] - START BLOCK - execute command in the block below under sudo su
 
 # INTERFACES
 ##EXTERNA="enp0s3"
 ##INTERNA="enp0s8"
 
 EXTERNA="wlp1s0"
+
 ## Change Internal depending on your NIC adapter
 INTERNA="enx00e04c6804f9"
 
@@ -105,6 +122,7 @@ iptables -t nat -A POSTROUTING -o $EXTERNA -j MASQUERADE
 #iptables -t nat -A PREROUTING -i $INTERNA -p tcp -m multiport --dports 80,443 -j REDIRECT --to-port 3128
 
 # SSH (PORT:22555).
+## remove lines below if issues encountered or for security reasons.
 iptables -t filter -A INPUT -i $INTERNA -p tcp --dport 22555 -j ACCEPT
 iptables -t filter -A OUTPUT -p tcp --sport 22555 -m state --state ESTABLISHED,RELATED -j ACCEPT
 
@@ -128,7 +146,7 @@ echo " "
 iptables-save
 
 
-##[] [STEP 6] - END BLOCK - execute command in the block above
+##[] [STEP 6] - END BLOCK - execute command in the block above as sudo su
 
 
 
@@ -138,31 +156,39 @@ iptables-save
 
 ##[] [STEP 7] - execute command in the block below, remove comments
 
-#### sudo su
-#### sudo iptables-save > /etc/iptables/rules.v4
+# sudo su
+# sudo iptables-save > /etc/iptables/rules.v4
 
-sudo cat /etc/iptables/rules.v4
+# sudo cat /etc/iptables/rules.v4
+
+# systemctl enable --now iptables
 
 
 
 
 
-##[] [STEP 8] - END - References
+##[] [STEP 8] - Verify that the iptables were saved
 
-### Reference links
+# sudo cat /etc/iptables/rules.v4
+
+
+
+##[] [STEP 9] - reboot and verify iptables survices a reboot and is persistent
+
+
+
+##[] [STEP 10] - ### Reference links
 
 
 ## https://www.networkreverse.com/2020/06/how-to-build-linux-router-with-ubuntu.html
 ## https://www.linuxquestions.org/questions/linux-security-4/iptables-dns-not-working-4175673577/
+## https://serverfault.com/questions/564866/how-to-set-up-linux-server-as-a-router-with-nat
 
 
 
 
 
-
-
-
-
+## END OF FILE
 
 
 
